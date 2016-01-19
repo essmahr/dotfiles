@@ -1,6 +1,9 @@
 # Make Sublime the default editor.
 export EDITOR='subl';
 
+#for subl command
+export PATH=$PATH:$HOME/bin
+
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
