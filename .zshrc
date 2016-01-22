@@ -25,7 +25,7 @@ done;
 unset file;
 
 # TODO: where do these go
-[ -s "/Users/smahr/.scm_breeze/scm_breeze.sh" ] && source "/Users/smahr/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
-export NVM_DIR="/Users/smahr/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
