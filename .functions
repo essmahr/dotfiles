@@ -38,3 +38,15 @@ function o() {
 	fi;
 }
 
+
+# cd shortcuts with autocomplete
+bc_path=~/Work/BC/
+
+pro() { cd ~/Projects/$1; }
+compctl -W ~/Projects/ -/ pro
+
+bct() { cd ${bc_path}/Themes/$1; }
+compctl -W ${bc_path}/Themes/ -/ bct
+
+bcm() { cd ${bc_path}/Modules/$1; }
+compctl -W ${bc_path}/Modules/ -/ bcm
