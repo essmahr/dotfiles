@@ -1,3 +1,7 @@
+[user]
+	name = Scott Mahr
+	email = essmahr@gmail.com
+
 [color]
 
 	# Use colors in Git commands that are capable of colored output when
@@ -63,3 +67,4 @@
 	insteadOf = "gst:"
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
+
