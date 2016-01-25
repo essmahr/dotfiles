@@ -38,3 +38,7 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 
 # play the bell noise
 alias ding="tput bel"
+
+# middleman
+alias mm="middleman"
+alias mmd="middleman build && rake deploy"
