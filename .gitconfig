@@ -69,3 +69,5 @@
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
 
+[core]
+	excludesfile = /Users/smahr/.gitignore
