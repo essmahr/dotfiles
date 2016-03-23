@@ -40,10 +40,14 @@ function o() {
 
 
 # cd shortcuts with autocomplete
-bc_path=~/Work/BC/
 
 pro() { cd ~/Projects/$1; }
 compctl -W ~/Projects/ -/ pro
+
+wrk() { cd ~/Work/$1; }
+compctl -W ~/Work/ -/ wrk
+
+bc_path=~/Work/BC/
 
 bct() { cd ${bc_path}/Themes/$1; }
 compctl -W ${bc_path}/Themes/ -/ bct
