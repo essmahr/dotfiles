@@ -38,6 +38,12 @@ function o() {
 	fi;
 }
 
+# git tag version bump
+
+gvb() { git tag -a $1 -m 'Version bump to $1'}
+
+gretag() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }
+
 
 # cd shortcuts with autocomplete
 
