@@ -45,3 +45,9 @@ alias mmd="middleman build && rake deploy"
 
 # git
 alias gfu="git commit -a --amend --no-edit && git push -f"
+
+# Laravel
+alias art="php artisan "
+
+# Vagrant
+alias v="vagrant"
