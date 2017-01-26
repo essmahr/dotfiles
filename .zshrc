@@ -27,7 +27,11 @@ unset file;
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# rvm
+export PATH="$PATH:$HOME/.rvm/bin"
 
-# TODO: where do these go
+# scm_breeze
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+
+# composer
+export PATH="$PATH:$HOME/.composer/vendor/bin"
