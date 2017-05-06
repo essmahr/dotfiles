@@ -27,6 +27,11 @@ unset file;
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# reading .nvmrc on login and directory change
+autoload -U add-zsh-hook
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 # rvm
 export PATH="$PATH:$HOME/.rvm/bin"
 
