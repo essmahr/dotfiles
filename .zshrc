@@ -40,3 +40,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# yarn
+export PATH="$HOME/.yarn/bin:$PATH"
