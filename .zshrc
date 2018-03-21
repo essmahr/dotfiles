@@ -6,7 +6,7 @@ ZSH_THEME="agnoster"
 DEFAULT_USER="smahr"
 
 # Enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
