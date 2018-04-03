@@ -19,10 +19,16 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
 
 # Source relevent dotfiles
-for file in ~/.{aliases,exports,functions}; do
+for file in ~/.{aliases,exports}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+# load custom executable functions
+for function in ~/.functions/*; do
+  source $function
+done
+unset function;
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

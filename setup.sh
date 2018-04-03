@@ -42,6 +42,9 @@ begin() {
   done
   info "Dotfiles symlinked."
 
+  # user "Symlinking functions directory"
+  # link "`pwd`/.functions/" "$HOME/.functions"
+
   # Do the OSX thing
   # user "Loading OSX preferences. You will need to enter your password."
   # zsh ./.osx
