@@ -35,9 +35,6 @@ load-nvmrc
 # rvm
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# scm_breeze
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
-
 # composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
