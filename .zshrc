@@ -41,6 +41,9 @@ load-nvmrc
 # rvm
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# SCM puff
+eval "$(scmpuff init -s)"
+
 # composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
