@@ -12,33 +12,17 @@ success() {
   printf "\r\033[00;32m[ !! ] »\033[0m $1\n"
 }
 
-contains() {
-  local n=$#
-  local value=${!n}
-  for ((i=1;i < $#;i++)) {
-    if [ "${!i}" == "${value}" ]; then
-      echo true
-      return 0
-    fi
-  }
-  echo false
-  return 1
-}
-
 link() {
   rm -f "$2"
   ln -s "$1" "$2"
 }
 
 begin() {
-  exclusions=(".DS_Store" "README.md", "setup.sh", ".git", "LICENSE-MIT.txt")
-
   # Symlink all the things
   user "Symlinking dotfiles."
   for file in .[^.]*; do
-    if [ $(contains "${exclusions[@]}" "$file") == false ]; then
-      link "`pwd`/$file" "$HOME/$file"
-    fi
+    [[ $file =~ (.git|.DS_Store)$ ]] && continue
+    link "`pwd`/$file" "$HOME/$file"
   done
   info "Dotfiles symlinked."
 
