@@ -1,0 +1,60 @@
+# Define git alias with tab completion
+# Usage: _git_alias <alias> <command_prefix> <command>
+_git_alias () {
+  if [ -n "$1" ]; then
+    local alias_str cmd_prefix cmd cmd_args
+
+    alias_str="$1"; cmd_prefix="$2"; cmd="$3";
+    if [ $# -gt 2 ]; then
+      shift 3 2>/dev/null
+      cmd_args=$@
+    fi
+
+    alias $alias_str="$cmd_prefix $cmd${cmd_args:+ }${cmd_args[*]}"
+    if [ "$shell" = "bash" ]; then
+      __define_git_completion "$alias_str" "$cmd"
+      complete -o default -o nospace -F _git_"$alias_str"_shortcut "$alias_str"
+    fi
+  fi
+}
+
+git_commit_prompt() {
+  local commit_msg
+  if [[ $shell == "zsh" ]]; then
+    vared -h -p "Commit Message: " commit_msg
+  else
+    read -r -e -p "Commit Message: " commit_msg
+  fi
+
+  if [ -n "$commit_msg" ]; then
+    eval $@ # run any prequisite commands
+    # Add $APPEND to commit message, if given. (Used to append things like [ci skip] for Travis CI)
+    if [ -n "$APPEND" ]; then commit_msg="$commit_msg $APPEND"; fi
+    echo $commit_msg | git commit -F - | tail -n +2
+  else
+    echo -e "\033[0;31mAborting commit due to empty commit message.\033[0m"
+  fi
+  escaped=$(echo "$commit_msg" | sed -e 's/"/\\"/g' -e 's/!/"'"'"'!'"'"'"/g')
+
+  if [[ $shell == "zsh" ]]; then
+    print -s "git commit -m \"${escaped//\\/\\\\}\"" # zsh's print needs double escaping
+    print -s "$commit_msg"
+  else
+    echo "git commit -m \"$escaped\"" >> $HISTFILE
+    # Also add unescaped commit message, for git prompt
+    echo "$commit_msg" >> $HISTFILE
+  fi
+}
+
+git_commit_all() {
+  changes=$(git status --porcelain | wc -l | tr -d ' ')
+  if [ "$changes" -gt 0 ]; then
+    if [ -n "$APPEND" ]; then
+      local appending=" | \033[0;36mappending '\033[1;36m$APPEND\033[0;36m' to commit message.\033[0m"
+    fi
+    echo -e "\033[0;33mCommitting all files (\033[0;31m$changes\033[0;33m)\033[0m$appending"
+    git_commit_prompt "git add --all ."
+  else
+    echo "# No changed files to commit."
+  fi
+}
