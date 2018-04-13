@@ -18,11 +18,8 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source $ZSH/oh-my-zsh.sh
 
-# Source relevent dotfiles
-for file in ~/.{aliases,exports}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
+# load exports
+source ~/.exports
 
 # load custom executable functions
 for function in ~/.functions/*; do
@@ -30,22 +27,18 @@ for function in ~/.functions/*; do
 done
 unset function;
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# load custom aliases
+for alias in ~/.aliases/*; do
+  source $alias
+done
+unset alias;
 
 # reading .nvmrc on login and directory change
 autoload -U add-zsh-hook
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-# rvm
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # SCM puff
 eval "$(scmpuff init -s)"
 
-# composer
-export PATH="$PATH:$HOME/.composer/vendor/bin"
 
-# yarn
-export PATH="$HOME/.yarn/bin:$PATH"
