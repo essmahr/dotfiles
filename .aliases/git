@@ -1,9 +1,12 @@
 # shortcuts
 _git_alias gb          'git' 'branch'
-_git_alias gc          'git' 'clone'
+_git_alias gbD         'git' 'branch' '-D'
+_git_alias gaa         'git' 'add' '-A'
+_git_alias gc          'git' 'commit'
 _git_alias gca         'git' 'clone'
 _git_alias gcb         'git' 'checkout' '-b'
 _git_alias gcp         'git' 'cherry-pick'
+_git_alias gcmh        'git' 'commit' '--amend' '--no-edit'
 _git_alias gf          'git' 'fetch'
 _git_alias gm          'git' 'merge'
 _git_alias gpl         'git' 'pull'
