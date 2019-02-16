@@ -16,10 +16,3 @@ export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
-
-# rvm
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"

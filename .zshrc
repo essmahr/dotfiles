@@ -33,12 +33,8 @@ for alias in ~/.aliases/*; do
 done
 unset alias;
 
-# reading .nvmrc on login and directory change
-autoload -U add-zsh-hook
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
 # SCM puff
 eval "$(scmpuff init -s)"
 
-
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
