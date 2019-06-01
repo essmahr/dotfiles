@@ -1,4 +1,4 @@
-export ZSH=/Users/smahr/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 
@@ -33,8 +33,7 @@ for alias in ~/.aliases/*; do
 done
 unset alias;
 
-# SCM puff
-eval "$(scmpuff init -s)"
+source $HOME/.scm_breeze/scm_breeze.sh
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash

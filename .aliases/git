@@ -1,26 +1,3 @@
-# shortcuts
-_git_alias gb          'git' 'branch'
-_git_alias gbD         'git' 'branch' '-D'
-_git_alias gaa         'git' 'add' '-A'
-_git_alias gc          'git' 'commit'
-_git_alias gca         'git' 'clone'
-_git_alias gcb         'git' 'checkout' '-b'
-_git_alias gcp         'git' 'cherry-pick'
-_git_alias gcmh        'git' 'commit' '--amend' '--no-edit'
-_git_alias gf          'git' 'fetch'
-_git_alias gm          'git' 'merge'
-_git_alias gpl         'git' 'pull'
-_git_alias gps         'git' 'push'
-_git_alias gpsf        'git' 'push' '-f'
-_git_alias gr          'git' 'remote' '-v'
-_git_alias grb         'git' 'rebase'
-_git_alias grbi        'git' 'rebase' '-i'
-_git_alias grm         'git' 'rm'
-_git_alias grs         'git' 'reset' '--'
-_git_alias grsh        'git' 'reset' '--hard'
-
-# from scm_breeze
-alias gca=git_commit_all
 
 # for whoopsies
 alias gfu="git commit -a --amend --no-edit && git push -f"
