@@ -33,6 +33,9 @@ for alias in ~/.aliases/*; do
 done
 unset alias;
 
+# direnv
+eval "$(direnv hook zsh)"
+
 source $HOME/.scm_breeze/scm_breeze.sh
 
 . $HOME/.asdf/asdf.sh
