@@ -36,7 +36,9 @@ unset alias;
 # direnv
 eval "$(direnv hook zsh)"
 
+# rbenv
+eval "$(rbenv init -)"
+
 source $HOME/.scm_breeze/scm_breeze.sh
 
-. $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
