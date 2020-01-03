@@ -1,4 +1,4 @@
-# Make Sublime the default editor.
+# Make Vim the default editor.
 export EDITOR='vim';
 
 # composer
@@ -12,6 +12,9 @@ export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
 
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';

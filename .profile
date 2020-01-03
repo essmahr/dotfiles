@@ -1,1 +1,1 @@
-. $HOME/.asdf/asdf.sh
+

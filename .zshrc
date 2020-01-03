@@ -18,6 +18,8 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 source $ZSH/oh-my-zsh.sh
 
+source $HOME/.scm_breeze/scm_breeze.sh
+
 # load exports
 source ~/.exports
 
@@ -39,6 +41,7 @@ eval "$(direnv hook zsh)"
 # rbenv
 eval "$(rbenv init -)"
 
-source $HOME/.scm_breeze/scm_breeze.sh
+# nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-. $HOME/.asdf/completions/asdf.bash
+
