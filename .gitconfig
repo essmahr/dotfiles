@@ -45,6 +45,9 @@
 	## rebases only plz
 	ff = only
 
+[pull]
+	ff = only
+
 [push]
 
 	# Make `git push` push relevant annotated tags when pushing branches out.

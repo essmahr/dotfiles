@@ -1,4 +1,3 @@
 
 # for whoopsies
 alias gfu="git commit -a --amend --no-edit && git push -f"
-
