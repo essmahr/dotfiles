@@ -11,7 +11,7 @@ alias sudo='sudo '
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # docker-compose
-alias dc=docker-compose
+alias dc="docker compose"
 
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
