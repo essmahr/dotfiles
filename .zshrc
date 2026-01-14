@@ -1,6 +1,6 @@
 export ZSH=~/.oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 # User configuration for agnoster theme
 DEFAULT_USER="smahr"
