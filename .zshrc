@@ -59,10 +59,6 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 
-# chruby
-source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
-source $(brew --prefix)/opt/chruby/share/chruby/auto.sh # automatically switch ruby version
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
