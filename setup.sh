@@ -26,6 +26,15 @@ begin() {
   done
   info "Dotfiles symlinked."
 
+  # Claude Code
+  #
+  # only link individual config files rather than symlinking the directory to
+  # sidestup session/state stuff
+  user "Symlinking Claude Code config."
+  mkdir -p "$HOME/.claude"
+  link "`pwd`/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  info "Claude Code config symlinked."
+
   # user "Symlinking functions directory"
   # link "`pwd`/.functions/" "$HOME/.functions"
 
