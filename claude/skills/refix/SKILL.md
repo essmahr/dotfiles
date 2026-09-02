@@ -27,13 +27,12 @@ Explain which commit you're targeting and why before making changes.
 
 ## Making the Change
 
-Format/lint commands are already known from project context — do not re-read
-CLAUDE.md or package.json.
+Use the project's format/lint commands if project context already names them.
+Don't go hunting through config files; if none are known, skip the lint step.
 
 1. Read the original commit message: `command git show --format="%B" --no-patch <target-hash>`
 2. Read the relevant files and make the necessary edits
-3. Run format and lint on only the changed files. Pipe output through `tail -20`
-   (e.g. `./bin/run.sh "pnpm lint:partial <file> --fix" 2>&1 | tail -20`).
+3. Run format and lint on only the changed files. Pipe output through `tail -20`.
 4. Stage only the changed files explicitly (never `git add .`)
    - `command git add <file1> <file2> ...`
 
@@ -51,12 +50,17 @@ GIT_SEQUENCE_EDITOR=true command git rebase -i --autosquash <target-hash>~1
 
 **Message needs updating:**
 ```bash
-printf '%s\n' "new commit message" > /tmp/refix_msg.txt
-GIT_EDITOR="cp /tmp/refix_msg.txt" command git commit --fixup=amend:<target-hash>
+msg=$(mktemp)
+printf 'amend! %s\n\n%s\n' "$(command git show -s --format=%s <target-hash>)" "new commit message" > "$msg"
+GIT_EDITOR="cp $msg" command git commit --fixup=amend:<target-hash>
 GIT_SEQUENCE_EDITOR=true GIT_EDITOR=true command git rebase -i --autosquash <target-hash>~1
 ```
 
-`--fixup=amend:` creates an `amend!` commit that replaces the original message during autosquash. `GIT_EDITOR=true` accepts that message without opening an editor.
+`--fixup=amend:` creates an `amend!` commit whose body replaces the original
+message during autosquash. `-m` and `-F` are rejected with `--fixup`, so the
+message goes in via `GIT_EDITOR`. The file must keep the `amend! <original subject>`
+first line: autosquash matches on it, and `cp` replaces the whole file. `GIT_EDITOR=true`
+on the rebase accepts the new message without opening an editor.
 
 If the rebase exits non-zero (conflict), enter a resolution loop:
 
