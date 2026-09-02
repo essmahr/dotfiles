@@ -33,6 +33,11 @@ begin() {
   user "Symlinking Claude Code config."
   mkdir -p "$HOME/.claude"
   link "`pwd`/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  # Claude Code saves settings via temp file + rename, which replaces the
+  # symlink with a real file. Adopt those edits into the repo before relinking.
+  if [[ -f "$HOME/.claude/settings.json" && ! -L "$HOME/.claude/settings.json" ]]; then
+    cp "$HOME/.claude/settings.json" claude/settings.json
+  fi
   link "`pwd`/claude/settings.json" "$HOME/.claude/settings.json"
   info "Claude Code config symlinked."
 

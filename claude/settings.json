@@ -1,9 +1,11 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "tui": "fullscreen",
   "theme": "dark",
   "model": "claude-fable-5-1[1m]",
   "attribution": {
     "commit": "",
     "pr": ""
-  }
+  },
+  "cleanupPeriodDays": 365
 }
