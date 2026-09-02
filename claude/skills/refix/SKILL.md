@@ -1,7 +1,7 @@
 ---
 name: refix
 description: Amend a previous commit cleanly using git fixup + autosquash rebase
-argument-hint: [commit-hash] <description-of-change>
+argument-hint: "[commit-hash] <description-of-change>"
 allowed-tools: Read, Edit, Glob, Grep, Bash(command git:*)
 ---
 
