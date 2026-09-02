@@ -33,6 +33,7 @@ begin() {
   user "Symlinking Claude Code config."
   mkdir -p "$HOME/.claude"
   link "`pwd`/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  link "`pwd`/claude/settings.json" "$HOME/.claude/settings.json"
   info "Claude Code config symlinked."
 
   # Skills: per-skill symlinks into a real ~/.claude/skills. Claude follows
