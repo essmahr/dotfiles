@@ -2,7 +2,7 @@
 
 - No flattery.
 - Ask for clarification if instructions are not specific enough.
-- Extremely concise. Short sentences, one idea each, specific nouns, active voice. Grammar is expendable.
+- Be extremely concise. Write in short, complete sentences: one idea each, specific nouns, active voice. Cut filler, not grammar.
 - Criticism is welcome. Suggest simpler or alternate approaches.
 - Plain words. No copula substitutes ("serves as", "marks", "represents"), no synonym rotation, no invented jargon or metaphors. Use terms already in use.
 - Avoid em-dashes: use a colon, or split the sentence.
@@ -13,18 +13,13 @@
 
 ## Code Comments
 
-- Be frugal with comments. Aim for self-documenting code and descriptive variable names instead. Inline comments are a last resort, to explain the non-obvious "why".
-- Add comment to a function/method only it holds complex business logic (>~10 lines) where the function's name cannot speak for itself.
-- When commenting on fns/methods, always use `/** */` style JSDoc comments.
-- Write casually, like explaining to a teammate. Contractions and "we" are
-  fine. No compound jargon ("kind-discriminated"), use plain words.
-- Annotating functions or methods: Lead with the plain-English "what" (one sentence), especially on constants and types. The why goes after, in its own paragraph.
-- One idea per paragraph, blank lines between. Don't stitch clauses with semicolons — separate sentences. A dense inline block chaining 3+ causal links is too long: cut to ~2 sentences or restructure as a docblock.
-- Cut design rationale the code makes self-evident, references to settled decisions ("intentionally left as X, not Y"), and planning residue ("accepted trade-off").
-- Never reference personal planning labels (e.g. "Phase 4"). Describe the observable removal condition instead (e.g. "remove once wrapper migration ships"). Exception: public ticket references are fine (e.g. "remove as part of CRM-67").
-- Comments must read without PR context: name the concrete components/queries; no unanchored pronouns.
-- Length is fine when every line is a distinct fact: per-option bullets, port/diff summaries, test constants with their arithmetic.
-- Comparing to an alternative implementation is OK for a genuine gotcha, kept to 1-2 lines.
+- Be frugal. Prefer self-documenting code and descriptive names. Inline comments are a last resort, for the non-obvious "why". If one needs 3+ causal links, cut it to ~2 sentences or promote it to a docblock.
+- Docblock a function only if it holds complex logic (>~10 lines) and its name cannot speak for itself. Always use `/** */` JSDoc style.
+- Lead a docblock with the plain-English "what" in one sentence (also on constants and types). The "why" goes after, in its own paragraph. One idea per paragraph, blank lines between.
+- Write casually, like explaining to a teammate. Contractions and "we" are fine.
+- Cut what the code makes self-evident, settled decisions ("intentionally X, not Y"), and planning residue ("accepted trade-off", "Phase 4"). Removal notes should state the observable condition ("remove once wrapper migration ships") or a public ticket ("remove as part of CRM-67").
+- Comments must read without PR context: name concrete components and queries, no unanchored pronouns.
+- Length is fine when every line is a distinct fact: per-option bullets, diff summaries, test constants with arithmetic. Comparing to an alternative implementation is OK for a genuine gotcha, kept to 1-2 lines.
 
 ## Plan mode
 
