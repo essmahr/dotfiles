@@ -21,6 +21,17 @@
 - Comments must read without PR context: name concrete components and queries, no unanchored pronouns.
 - Length is fine when every line is a distinct fact: per-option bullets, diff summaries, test constants with arithmetic. Comparing to an alternative implementation is OK for a genuine gotcha, kept to 1-2 lines.
 
+
+## Git
+
+- Use short casual commit messages (no `feat:` prefixes)
+- Single-line commit messages. Use multiline only for complex or non-obvious changes
+- Commit message format: imperative mood, lowercase, no trailing period — `add CheckboxInput primitive`, not `Added CheckboxInput Primitive.`
+- prefer small, atomic commits
+- Atomic commit units: separate commits for renames/moves (no logic changes), refactors (no behavior changes), test migrations, and lint-only passes
+- Always tend towards human-readable git history. For example, if a PR both renames and updates a file, rename the file first in its own commit (`git mv`) and update after.
+
+
 ## Plan mode
 
 - Make the plan extremely concise.
