@@ -79,7 +79,8 @@ teammate: first person, why before what, honest about what's rough, short.
 - Sentence case, ~50 chars, no trailing period. Lowercase is fine for small stuff.
 - Series: "part 2" / "pt. 3"; "Final" or "wraps up" for the last one; "redux" for a second attempt.
 - Reverts keep GitHub's `Revert "..."` title.
-- No conventional-commit prefixes (`fix:`, `feat:`), no ticket IDs unless the repo template asks.
+- No conventional-commit prefixes (`fix:`, `feat:`). No ticket IDs in the title: they live in the
+  branch name (Linear convention) and in Related Issues.
 
 ## Files
 

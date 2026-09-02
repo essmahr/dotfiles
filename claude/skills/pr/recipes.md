@@ -8,6 +8,7 @@ in it. Never leave a header with only a placeholder under it.
 Related Issues vocabulary (bare URLs, one per line, bullets optional):
 `Closes`, `Part of <tracking issue>`, `Follows <prev PR>`, `Followup to`, `Stacks on`
 (literally branched off), `Prereq for`, `FE half of <BE PR>`, `Reapplies`, `Related to`.
+Linear tickets go here too, as `Closes FEP-123` or the issue URL, never in the title.
 
 Size rule: 1-2 files and one idea? Use **Tiny**. Otherwise use the type recipe.
 
