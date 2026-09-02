@@ -35,6 +35,20 @@ begin() {
   link "`pwd`/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   info "Claude Code config symlinked."
 
+  # Skills: per-skill symlinks into a real ~/.claude/skills. Claude follows
+  # symlinked entries, and a real dir leaves room for local-only skills.
+  user "Symlinking Claude Code skills."
+  mkdir -p "$HOME/.claude/skills"
+  for skill in claude/skills/*(/N); do
+    link "`pwd`/$skill" "$HOME/.claude/skills/$(basename "$skill")"
+  done
+  for existing in "$HOME"/.claude/skills/*(@N); do
+    [[ "$(readlink "$existing")" == "`pwd`/claude/skills/"* ]] || continue
+    [[ -e "$existing" ]] && continue
+    rm "$existing"
+  done
+  info "Claude Code skills symlinked."
+
   # user "Symlinking functions directory"
   # link "`pwd`/.functions/" "$HOME/.functions"
 
