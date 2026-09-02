@@ -1,4 +1,6 @@
-#!/bin/zsh
+#!/bin/bash
+
+shopt -s nullglob
 
 user() {
   printf "\r\033[00;34m[ .. ] »\033[0m $1\n"
@@ -45,10 +47,12 @@ begin() {
   # symlinked entries, and a real dir leaves room for local-only skills.
   user "Symlinking Claude Code skills."
   mkdir -p "$HOME/.claude/skills"
-  for skill in claude/skills/*(/N); do
+  for skill in claude/skills/*/; do
+    skill="${skill%/}"
     link "`pwd`/$skill" "$HOME/.claude/skills/$(basename "$skill")"
   done
-  for existing in "$HOME"/.claude/skills/*(@N); do
+  for existing in "$HOME"/.claude/skills/*; do
+    [[ -L "$existing" ]] || continue
     [[ "$(readlink "$existing")" == "`pwd`/claude/skills/"* ]] || continue
     [[ -e "$existing" ]] && continue
     rm "$existing"
