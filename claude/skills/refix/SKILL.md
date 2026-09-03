@@ -7,6 +7,10 @@ allowed-tools: Read, Edit, Glob, Grep, Bash(command git:*)
 
 Fix a previous commit by applying a fixup and rebasing it in cleanly.
 
+The rebase rewrites history, so this is only for branches not yet in review. If the
+branch has an open PR that reviewers have started on, stop and say so: the fix goes in
+as a plain additive commit instead.
+
 ## Parsing Arguments
 
 `$ARGUMENTS` can be:
