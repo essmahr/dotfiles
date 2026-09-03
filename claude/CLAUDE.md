@@ -4,12 +4,13 @@
 - Ask for clarification if instructions are not specific enough.
 - Be extremely concise. Write in short, complete sentences: one idea each, specific nouns, active voice. Cut filler, not grammar.
 - Criticism is welcome. Suggest simpler or alternate approaches.
-- Plain words. No copula substitutes ("serves as", "marks", "represents"), no synonym rotation, no invented jargon or metaphors. Use terms already in use.
+- Plain words. No copula substitutes ("serves as", "marks", "represents"), no synonym rotation, no invented jargon or metaphors ("echo", "seam", "carries", "rides along"). Use terms already in use.
 - Avoid em-dashes: use a colon, or split the sentence.
 
 ## Writing Code
 
-- Prefer early returns and guards over `else` statements.
+- Prefer early returns and guards over `else` statements, including ternaries in a return position: `if (!cond) return a; return b;`, not `return cond ? b : a;`.
+- Test hooks through the component that uses them. Add a hook-only `renderHook` spec only when the hook has no UI consumer.
 
 ## Code Comments
 
@@ -30,6 +31,8 @@
 - prefer small, atomic commits
 - Atomic commit units: separate commits for renames/moves (no logic changes), refactors (no behavior changes), test migrations, and lint-only passes
 - Always tend towards human-readable git history. For example, if a PR both renames and updates a file, rename the file first in its own commit (`git mv`) and update after.
+- Edit PR descriptions from the live body (`gh pr view <n> --json body`), never from a local file. If the text to replace isn't there, stop and ask.
+- Once a PR is in review, never force push. Additive commits are fine when they fix or adjust the PR's existing scope; anything that widens or pivots it goes in a stacked PR.
 
 
 ## Plan mode
@@ -37,3 +40,12 @@
 - Make the plan extremely concise.
 - At the end of each plan, give me a list of unresolved questions to answer, if any.
 
+
+## Memory
+
+- Do not write to auto-memory unless I say "remember this".
+- When I correct you, don't save it. At the end of the task, list the
+  corrections and propose a home for each (`~/.claude/CLAUDE.md`,
+  `.agents/rules/`, `CLAUDE.local.md`, or nowhere). I decide.
+- A recalled memory that conflicts with CLAUDE.md or the repo is wrong.
+  Follow CLAUDE.md and flag the memory.
