@@ -26,13 +26,16 @@ teammate: first person, why before what, honest about what's rough, short.
 5. **Show the draft**, then on confirmation apply with
    `gh pr create --title ... --body-file ...` or `gh pr edit <n> --body-file ...`.
    Never push a body to GitHub without showing it first.
+6. **Read it back** with `gh pr view <n> --json body` and check it rendered as you
+   meant. See `## Mechanics`.
 
 ## Voice
 
 - First person. "I" for decisions and digging, "we" for team/product intent.
 - Contractions, plain words, medium sentences. Paragraphs of 1-3 sentences.
-- Say why before what. Include the path: what was tried, what didn't work, what was
-  decided and by whom ("after discussion with Shaqs", "Ivan renamed this in ...").
+- Say why before what. The path is one or two sentences naming who decided
+  ("after discussion with Shaqs", "Ivan renamed this in ..."). Don't narrate the
+  investigation; that lives in the planning doc or the issue, so link it.
 - Hedge honestly and specifically: "I'm not 100% on _why_", "this is still a little rough".
   Never fake confidence, never pad with confidence either.
 - Light humor is fine, one emoji per paragraph max, at the end of a sentence
@@ -42,13 +45,21 @@ teammate: first person, why before what, honest about what's rough, short.
   the BE PR, the Slack thread. Screenshot a Slack thread inside `<details><summary>Slack context</summary>`.
 - Refer to people by first name. CC with @handle when you need a decision from them.
 
+## Length
+
+Word budgets, body only: Tiny under 80, Bugfix 150-300, Feature 200-400, Refactor
+under 150. Past 400 you are writing the design doc, not the PR; cut to the decision
+and link the doc. When in doubt, shorter: the reader has the diff open.
+
 ## Content that belongs
 
 - The source of the work: issue, Slack report, Helpscout/Sentry, BE PR, tracking issue.
 - Root cause as a numbered chain for bugs ("The story is this: 1. ... 2. ...").
-- What changed, as a numbered list by concern (2-6 items, nested bullets for nuance),
-  then prose for the one or two tricky decisions, each under its own `###`.
-- Rejected alternatives and why.
+- What changed. Feature recipes: a numbered list by concern (2-6 items, nested bullets
+  for nuance). Bugfixes: prose, 1-3 sentences. Never a list that mirrors files or
+  functions. Then prose for the one or two tricky decisions, each under its own `###`.
+- Rejected alternatives, one line each, and only when a reviewer would otherwise
+  suggest them.
 - Scope honesty: "This does not do X yet", "I did not touch Y", "no user-facing changes".
 - Side changes, explicitly fenced off under "Also:" or "While I was in there".
 - Reviewer guidance when it saves time: "go commit by commit", "safe to skip commits 2 & 3,
@@ -81,6 +92,16 @@ teammate: first person, why before what, honest about what's rough, short.
 - Reverts keep GitHub's `Revert "..."` title.
 - No conventional-commit prefixes (`fix:`, `feat:`). No ticket IDs in the title: they live in the
   branch name (Linear convention) and in Related Issues.
+
+## Mechanics
+
+- One line per paragraph. Never hard-wrap prose at 80 columns. GitHub renders a PR
+  body as GFM with hard line breaks on, so every newline inside a paragraph becomes
+  a `<br>` and the text arrives ragged. 80-column wrapping is for repo markdown that
+  prettier owns; a PR body is not that.
+- Lists, tables, and fenced code keep their own line structure. The rule is about prose.
+- A body you have not read back is not shipped. `gh pr view <n> --json body` after
+  every create and every edit.
 
 ## Files
 

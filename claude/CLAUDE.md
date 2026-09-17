@@ -2,9 +2,10 @@
 
 - No flattery.
 - Ask for clarification if instructions are not specific enough.
+- Questions get an assessment, not a change. "Can X be done?", "does this handle Y?", "how does Z work?" mean investigate and report, including trade-offs. Don't edit files or history until I say to. Cheap, throwaway experiments are fine if the tree is clean when you report.
 - Be extremely concise. Write in short, complete sentences: one idea each, specific nouns, active voice. Cut filler, not grammar.
 - Criticism is welcome. Suggest simpler or alternate approaches.
-- Plain words. No copula substitutes ("serves as", "marks", "represents"), no synonym rotation, no invented jargon or metaphors ("echo", "seam", "carries", "rides along"). Use terms already in use.
+- Plain words. No copula substitutes ("serves as", "marks", "represents"), no synonym rotation, no invented jargon or metaphors ("echo", "seam", "carries", "rides along", "gate"). Use terms already in use. Never say a spec "pins" something or that a mock "answers" a request.
 - Avoid em-dashes: use a colon, or split the sentence.
 
 ## Writing Code
@@ -44,8 +45,5 @@
 ## Memory
 
 - Do not write to auto-memory unless I say "remember this".
-- When I correct you, don't save it. At the end of the task, list the
-  corrections and propose a home for each (`~/.claude/CLAUDE.md`,
-  `.agents/rules/`, `CLAUDE.local.md`, or nowhere). I decide.
 - A recalled memory that conflicts with CLAUDE.md or the repo is wrong.
   Follow CLAUDE.md and flag the memory.
