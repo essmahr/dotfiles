@@ -6,6 +6,18 @@
     "pr": ""
   },
   "model": "claude-fable-5-1[1m]",
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "planet@planet-local": true
+  },
+  "extraKnownMarketplaces": {
+    "planet-local": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/scottmahr/code/personal/planet"
+      }
+    }
+  },
   "tui": "fullscreen",
   "theme": "dark"
 }
