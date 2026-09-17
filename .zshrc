@@ -71,3 +71,10 @@ esac
 # pnpm end
 
 export PATH="$HOME/.local/bin:$PATH"
+
+# bun completions
+[ -s "/Users/scottmahr/.oh-my-zsh/completions/_bun" ] && source "/Users/scottmahr/.oh-my-zsh/completions/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
