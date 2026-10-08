@@ -5,7 +5,7 @@
 - Questions get an assessment, not a change. "Can X be done?", "does this handle Y?", "how does Z work?" mean investigate and report, including trade-offs. Don't edit files or history until I say to. Cheap, throwaway experiments are fine if the tree is clean when you report.
 - Be extremely concise. Write in short, complete sentences: one idea each, specific nouns, active voice. Cut filler, not grammar.
 - Criticism is welcome. Suggest simpler or alternate approaches.
-- Plain words. No copula substitutes ("serves as", "marks", "represents"), no synonym rotation, no invented jargon or metaphors ("echo", "seam", "carries", "rides along", "gate"). Use terms already in use. Never say a spec "pins" something or that a mock "answers" a request.
+- Plain words. No copula substitutes ("serves as", "marks", "represents"), no synonym rotation, no invented jargon or metaphors ("echo", "seam", "carries", "rides along", "gate", "drain", "spine"). Use terms already in use. Never say a spec "pins" something, that a mock "answers" a request, or that data "carries" a value ("the feed activity carries them as plain ids": write "has" or "includes"). Never say you "drain" a module of its consumers ("drain every consumer off legacy Field": write "migrate every consumer off legacy Field"), or that a piece of work is the "spine" of an epic.
 - Avoid em-dashes: use a colon, or split the sentence.
 
 ## Writing Code

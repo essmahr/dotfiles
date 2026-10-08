@@ -16,8 +16,11 @@ teammate: first person, why before what, honest about what's rough, short.
    - `gh pr list --state all --search "<branch keywords>"` for sibling/previous PRs in a series
    - Issue/PR URLs in commit messages or branch name
    - The repo's `.github/pull_request_template.md`, if any. Its headers are the skeleton.
+   - Content passed in by a caller (another skill, e.g. Planet's implement step) is raw
+     material for the recipe. It never sets the body's structure or length.
 2. **Classify** the PR with `recipes.md` and pick one recipe. Ask only if it's genuinely
-   ambiguous (e.g. refactor vs. feature phase).
+   ambiguous (e.g. refactor vs. feature phase). Read that recipe and one matching example
+   in `examples.md` in full before drafting.
 3. **Ask for what you can't know**, in one message, only if the recipe needs it:
    where the bug was reported (Slack / Linear / issue), flag names, names of people
    who made a decision, what's intentionally left out.
@@ -43,7 +46,7 @@ teammate: first person, why before what, honest about what's rough, short.
 - Backticks for every identifier, prop, file, flag. `_underscores_` for a single emphasized word.
 - Link with bare URLs, one per line: prior PRs, the issue, permalinks to exact lines,
   the BE PR, the Slack thread. Screenshot a Slack thread inside `<details><summary>Slack context</summary>`.
-- Refer to people by first name. CC with @handle when you need a decision from them.
+- Refer to people by first name, in prose, when you need a decision from them. Never @-mention anyone: Scott tags people himself.
 
 ## Length
 
@@ -62,11 +65,11 @@ and link the doc. When in doubt, shorter: the reader has the diff open.
   suggest them.
 - Scope honesty: "This does not do X yet", "I did not touch Y", "no user-facing changes".
 - Side changes, explicitly fenced off under "Also:" or "While I was in there".
-- Reviewer guidance when it saves time: "go commit by commit", "safe to skip commits 2 & 3,
-  bulk search-and-replace", "easier to read the final diff".
+- Reviewer guidance only when it departs from the default: "safe to skip commits 2 & 3,
+  bulk search-and-replace", "easier to read the final diff". Commit-by-commit is the
+  default; never say "go commit by commit".
 - Testing: numbered steps for a flow (flag name first), one sentence for a spot check
-  ("Smoke test of X"), or "nothing user-facing" for refactors. Say how *you* tested if
-  steps don't apply. Say plainly when you couldn't test.
+  ("Smoke test of X"), or "nothing user-facing" for refactors.
 - Next up / follow-ups with links to issues you opened. Open questions, addressed to someone.
 - `### Changes to Owned Code`: `Team: <name>` + one-line directive ("this is for you",
   "ignore, just exporting a type"). Collapse to "All A&I" when single-team.
@@ -75,6 +78,9 @@ and link the doc. When in doubt, shorter: the reader has the diff open.
 
 - No file-by-file restating of the diff. No "Summary" / "Test plan" boilerplate headers.
 - No checklists, no "N/A", no bold-label pseudo headers, no closing sign-off or thanks.
+- Don't enumerate test coverage (which specs cover what). The reviewer sees the specs in the diff.
+- Don't say what wasn't tested, and never in first person: Claude did the work, and "I" in the
+  body speaks for Scott.
 - No template residue: delete unused sections and every `<!-- -->` comment, `![Alt text](url-to-image.png)`,
   `- Closes #`, `Team:\n- Change`. (147 of 920 past PRs shipped with some. This is the rule to enforce.)
 - No Mobile screenshot block unless the change is layout/mobile-specific.
